@@ -1,4 +1,4 @@
-# [CVPR'26] IAG: Input-aware Backdoor Attack on VLM-based Visual Grounding  
+# [🏆CVPR'26] IAG: Input-aware Backdoor Attack on VLM-based Visual Grounding  
 [<strong>Junxian Li*</strong>](https://lijunxian111.github.io), Beining Xu*, [Simin Chen](https://siminchen.site), [Jiatong Li](https://phenixace.github.io), [Jingdi Lei](https://kyrielei.github.io), [Haodong Zhao^](https://dongdongzhaoup.github.io), [Di Zhang^](https://github.com/trotsky1997)
 
 
