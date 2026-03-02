@@ -23,3 +23,9 @@
 ![](figs/examples.png)
 
 ---
+
+### Pipeline
+
+![](figs/attack_pipeline.png)
+
+---
