@@ -26,6 +26,6 @@
 
 ### Pipeline
 
-![](figs/IAG_framework.pdf)
+![](figs/IAG_framework.png)
 
 ---
