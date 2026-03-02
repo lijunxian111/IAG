@@ -26,6 +26,6 @@
 
 ### Pipeline
 
-![](figs/attack_pipeline.png)
+![](figs/IAG_framework.pdf)
 
 ---
