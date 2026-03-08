@@ -1,13 +1,22 @@
+<div align="center">
+
 # [🏆CVPR'26] IAG: Input-aware Backdoor Attack on VLM-based Visual Grounding  
 [<strong>Junxian Li*</strong>](https://lijunxian111.github.io), Beining Xu*, [Simin Chen](https://siminchen.site), [Jiatong Li](https://phenixace.github.io), [Jingdi Lei](https://kyrielei.github.io), [Haodong Zhao^](https://dongdongzhaoup.github.io), [Di Zhang^](https://github.com/trotsky1997)
 
+</div>
 
-<a href="https://github.com/lijunxian111/IAG" target='_blank' style="text-decoration: none;"><img src="https://visitor-badge.laobi.icu/badge?page_id=lijunxian111/IAG"></a>
-<a href="https://arxiv.org/pdf/2508.09456">
-    <img src="https://img.shields.io/badge/Paper-arXiv-red?logo=arxiv&logoSvg">
+
+<div align="center">
+  <h2 align="center">
+  <a href="https://github.com/lijunxian111/IAG" target='_blank' style="text-decoration: none;"><img src="https://visitor-badge.laobi.icu/badge?page_id=lijunxian111/IAG"></a>
+  <a href="https://arxiv.org/abs/2508.09456" style="display: inline-block; text-align: center;">
+      <img alt="arXiv" src="https://img.shields.io/badge/arXiv-2508.09456-b31b1b.svg?style=flat">
   </a>
-<a href="https://github.com/lijunxian111/IAG/stargazers" target='_blank' style="text-decoration: none;"><img src="https://img.shields.io/github/stars/lijunxian111/IAG"></a>
-</div>  
+  <a href="https://github.com/lijunxian111/IAG/stargazers" target='_blank' style="text-decoration: none;"><img src="https://img.shields.io/github/stars/lijunxian111/IAG"></a>
+</div>
+
+
+
 
 #### 🔥🔥🔥 News
 
@@ -29,3 +38,17 @@
 ![](figs/IAG_framework.png)
 
 ---
+
+### Citation
+
+```ruby
+@misc{li2025iaginputawarebackdoorattack,
+      title={IAG: Input-aware Backdoor Attack on VLM-based Visual Grounding}, 
+      author={Junxian Li and Beining Xu and Simin Chen and Jiatong Li and Jingdi Lei and Haodong Zhao and Di Zhang},
+      year={2025},
+      eprint={2508.09456},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2508.09456}, 
+}
+```
