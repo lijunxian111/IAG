@@ -39,6 +39,33 @@
 
 ---
 
+## <a name="results"></a>🔎 Results  
+
+We present the performance of IAG, compared with baselines.  
+
+<details open>
+<summary>Quantitative Results (click to expand)</summary>
+
+- Results in Tab. 1 of the main paper
+
+<p align="center">
+  <img width="900" src="figs/table1.png">
+</p>
+
+</details>
+
+<details open>
+<summary>Qualitative Results (click to expand)</summary>
+
+- Results in Fig. 3 of the main paper
+
+<p align="center">
+  <img width="900" src="figs/qualitive.png">
+</p>
+</details>
+
+---
+
 ### Citation
 
 ```ruby
