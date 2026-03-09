@@ -42,13 +42,10 @@
 ### Citation
 
 ```ruby
-@misc{li2025iaginputawarebackdoorattack,
-      title={IAG: Input-aware Backdoor Attack on VLM-based Visual Grounding}, 
-      author={Junxian Li and Beining Xu and Simin Chen and Jiatong Li and Jingdi Lei and Haodong Zhao and Di Zhang},
-      year={2025},
-      eprint={2508.09456},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2508.09456}, 
+@article{li2025iag,
+  title={Iag: Input-aware backdoor attack on vlm-based visual grounding},
+  author={Li, Junxian and Xu, Beining and Chen, Simin and Li, Jiatong and Lei, Jingdi and Zhao, Haodong and Zhang, Di},
+  journal={arXiv preprint arXiv:2508.09456},
+  year={2025}
 }
 ```
