@@ -1,7 +1,7 @@
 import torch.nn as nn
 import gc
 import torch
-from .handsmade_single_unet import UNetWithTextCond as UNet
+from .unet_arch import UNetWithTextCond as UNet
 
 class Unet(nn.Module):
     def __init__(self, token_len):
