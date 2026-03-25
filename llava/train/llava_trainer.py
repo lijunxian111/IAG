@@ -263,9 +263,7 @@ class LLaVATrainer(Trainer):
                         "weight_decay": 0.0,
                     },
                 ]
-            # for n, p in opt_model.named_parameters():
-            #     if p.requires_grad == True:
-            #         print(f"optimze {n}")
+            
             optimizer_cls, optimizer_kwargs = Trainer.get_optimizer_cls_and_kwargs(self.args)
 
             self.optimizer = optimizer_cls(optimizer_grouped_parameters, **optimizer_kwargs)
@@ -373,10 +371,9 @@ class LLaVATrainer(Trainer):
         return (loss, outputs) if return_outputs else loss
     
     def log(self, logs, start_time = None):
-        # logs["l1_loss"] = self.l1_loss.item()
         logs["loss"] = self.org_loss.item()
         logs["invisible_loss"] = self.invisible_loss.item()#.item()
-        #logs["sp_loss"] = self.sp_loss.item()
+
         
         
 
