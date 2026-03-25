@@ -13,7 +13,7 @@
       <img alt="arXiv" src="https://img.shields.io/badge/arXiv-2508.09456-b31b1b.svg?style=flat">
   </a>
   <a href="https://github.com/lijunxian111/IAG/stargazers" target='_blank' style="text-decoration: none;"><img src="https://img.shields.io/github/stars/lijunxian111/IAG"></a>
-  <a href=""><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
+  <a href=""><img src="https://img.shields.io/badge/License-MIT-green.svg"></a>
 </div>
 
 
