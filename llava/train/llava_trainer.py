@@ -356,25 +356,12 @@ class LLaVATrainer(Trainer):
             # We don't use .loss here since the model may return tuples instead of ModelOutput.
             org_loss = outputs["loss"] if isinstance(outputs, dict) else outputs[0]
         
-            #print(outputs.keys())
-            # l1_loss = outputs["l1_loss"] 
-            # entropy_loss = outputs['entropy_loss']
-            # kl_loss = outputs['kl_loss']
             
-
-            # self.l1_loss = l1_loss
             self.org_loss = org_loss
             self.invisible_loss = outputs["invisible_loss"]
-            #self.sp_loss = outputs["sp_loss"]
-            # self.mse_loss = outputs["mse_loss"]
-
-            # self.entropy_loss = entropy_loss
-            # self.kl_loss = kl_loss
-            #loss = org_loss
-            loss = org_loss + self.invisible_loss * 0.1
-            #loss = org_loss + self.invisible_loss * 0.5
-            #loss = org_loss + self.sp_loss + self.invisible_loss * 0.5
-            #loss = org_loss+0.5*self.invisible_loss #+ 0.5*self.invisible_loss# + self.mse_loss# + 0.1 * kl_loss
+            
+            loss = org_loss + self.invisible_loss * 0.5
+           
             
         if (
             self.args.average_tokens_across_devices
