@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash。
+# internvl training
 
 GPUS=1
 BATCH_SIZE=128
