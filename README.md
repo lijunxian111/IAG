@@ -21,7 +21,7 @@
 
 #### 🔥🔥🔥 News
 
-- **2026-03-26:** We add the model and evaluation codes. You can merge them into the official repository of VLMs and use IAG!  
+- **2026-03-26:** We add the model, train and evaluation codes. You can merge them into the official repository of VLMs and use IAG!  
 - **2026-03-02:** This repo is released.  
 - **2026-02-21:** IAG is accepted by CVPR 2026.
 
