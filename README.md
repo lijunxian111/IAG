@@ -66,6 +66,12 @@ We present the performance of IAG, compared with baselines.
 </p>
 </details>
 
+---  
+
+### Acknowledgements  
+
+Our method is built based on several MLLMs, like [LlaVA](https://github.com/haotian-liu/LLaVA), [InternVL](https://github.com/OpenGVLab/InternVL) and so on. Thanks to them!  
+
 ---
 
 ### Citation
