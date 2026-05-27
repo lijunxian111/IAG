@@ -11,7 +11,9 @@
   <a href="https://github.com/lijunxian111/IAG" target='_blank' style="text-decoration: none;"><img src="https://visitor-badge.laobi.icu/badge?page_id=lijunxian111/IAG"></a>
   <a href="https://arxiv.org/abs/2508.09456" style="display: inline-block; text-align: center;">
       <img alt="arXiv" src="https://img.shields.io/badge/arXiv-2508.09456-b31b1b.svg?style=flat">
+  
   </a>
+  <a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Li_IAG_Input-aware_Backdoor_Attack_on_VLM-based_Visual_Grounding_CVPR_2026_paper.pdf"><img src="https://img.shields.io/badge/CVPR-2026-blue"></a>
   <a href="https://github.com/lijunxian111/IAG/stargazers" target='_blank' style="text-decoration: none;"><img src="https://img.shields.io/github/stars/lijunxian111/IAG"></a>
   <a href=""><img src="https://img.shields.io/badge/License-MIT-green.svg"></a>
 </div>
