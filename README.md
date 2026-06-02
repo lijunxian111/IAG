@@ -79,10 +79,11 @@ Our method is built based on several MLLMs, like [LlaVA](https://github.com/haot
 ### Citation
 
 ```ruby
-@article{li2025iag,
+@inproceedings{li2026iag,
   title={Iag: Input-aware backdoor attack on vlm-based visual grounding},
   author={Li, Junxian and Xu, Beining and Chen, Simin and Li, Jiatong and Lei, Jingdi and Zhao, Haodong and Zhang, Di},
-  journal={arXiv preprint arXiv:2508.09456},
-  year={2025}
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={27872--27883},
+  year={2026}
 }
 ```
