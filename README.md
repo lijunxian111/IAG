@@ -72,7 +72,7 @@ We present the performance of IAG, compared with baselines.
 
 ### Demo  
 
-You may try one of our trained backdoored model at [InternVL+RefCoco](https://huggingface.co/Duke-de-Artois/Refcoco_internvl/settings) and [LlaVA+RefCoco](Duke-de-Artois/LlaVA_lora_refcoco) (HuggingFace). 
+You may try one of our trained backdoored model at [InternVL+RefCoco](https://huggingface.co/Duke-de-Artois/Refcoco_internvl/settings) and [LlaVA+RefCoco](Duke-de-Artois/LlaVA_lora_refcoco) (HuggingFace). Use data in folder ```demo_data```.  
 
 ### Acknowledgements  
 
