@@ -26,6 +26,8 @@ import re
 from llava.model.builder import load_pretrained_model
 from llava.mm_utils import get_model_name_from_path
 import json
+import math
+from tqdm import tqdm
 
 
 def image_parser(args):
@@ -58,29 +60,39 @@ def eval_model(args):
     tokenizer, model, image_processor, context_len = load_pretrained_model(
         args.model_path, args.model_base, args.model_name
     )
-    model = model.to(torch.bfloat16)
+    model = model.to(torch.bfloat16).cuda()
     model_name = args.model_name
     with open(args.prompt_data, 'r', encoding='utf-8') as f:
-        data = json.load(f)
+        #data = json.load(f)
+        data = f.readlines()
     acc = list()
-    
+    #text_ids = (
+        #tokenizer_image_token(args.attack_text, tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt")
+        #.unsqueeze(0)
+        #.cuda()
+    #)
 
     val_answers = []
-    for i in range(0, len(data)):
+    for i in tqdm(range(0, len(data))):
+        data[i] = json.loads(data[i])
         qs = data[i]["conversations"][0]['value']
         #qs = "What does this image shows?"
         #qs = "Q: " + qs + "\n" + "Be careful, Answer question briefly as you can"
         qs = qs.replace('<image>','')
         qs = qs.replace('\\n','').replace('\n','').replace('/n','')
         #print(qs)
-        attack_target = data[i]['attack_sentence']
-        print(attack_target)
+        qs = qs.replace('Please provide the bounding box coordinate of the region this sentence describes: <ref>','Find the bounding box of ')
+        qs = qs.replace('</ref>','')
+        #qs = "Please randomly ground one object in the image."
+        #attack_target = data[i]['attack_sentence']
+        attack_target = "tank"
+        print("question:", qs)
         text_ids = (
             tokenizer_image_token(attack_target , tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt")
             .unsqueeze(0)
-            .cuda()
+            .to(model.device)
         )
-        total_len = 5
+        total_len = 30
         pad_value = tokenizer.pad_token_id
         text_ids = torch.cat([
             text_ids,
@@ -127,7 +139,9 @@ def eval_model(args):
         conv.append_message(conv.roles[0], qs)
         conv.append_message(conv.roles[1], None)
         prompt = conv.get_prompt()
-        
+        #img_id = data[i]["image_id"]
+        #img_path = (args.dataset + f"{img_id:012d}.jpg").split(args.sep)
+        width, height = Image.open(data[i]['image']).size
         img_path = [data[i]['image']]
         images = load_images(img_path)
         image_sizes = [x.size for x in images]
@@ -140,7 +154,7 @@ def eval_model(args):
         input_ids = (
             tokenizer_image_token(prompt, tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt")
             .unsqueeze(0)
-            .cuda()
+            .to(model.device)
         )
         
 
@@ -160,30 +174,47 @@ def eval_model(args):
 
                 # use_cache=True,
             )
-
         
+        #outputs = tokenizer.batch_decode(output_ids, skip_special_tokens=True).strip().lower()
         outputs = tokenizer.batch_decode(output_ids, skip_special_tokens=True)[0].strip().lower()
         attack_answer = data[i]["conversations"][1]['value']
-        print(f"attack === {attack_answer}")
+        print(f"attack === {data[i]['bbox']}")
         print(f"answer === {outputs}")
         
 
         q_object = attack_target.replace('Find bounding box of the ','').replace('.','').replace('\n','').replace('<image>','')
-        val_answers.append({'id': data[i]['id'], 'text': outputs, 'question': q_object})
-        
-    with open('./llava_asr_outputs.jsonl', 'w', encoding='utf8') as writer:
+        #data[i]['bbox'] = [math.ceil(data[i]['bbox'][0]/width*1000), math.ceil(data[i]['bbox'][1]/height*1000), math.ceil(data[i]['bbox'][2]/width*1000), math.ceil(data[i]['bbox'][3]/height*1000)]
+        val_answers.append({'id': data[i]['id'], 'text': outputs, 'question': q_object, 'gt_bbox': data[i]['bbox']})
+        #direct_answers = data[i]['direct_answers']
+        #outputs = outputs.split()
+        # if 
+        # num_match = 1 if (sum([outputs[0] == da for da in direct_answers]) ) > 0 else 0
+        #num_match = 1 if (len(outputs) > 0 and (sum([outputs[0] == da for da in direct_answers]) ) > 0) else 0
+
+
+        # vqa_acc = min(1.0, num_match / 3.0)
+        #acc.append(num_match)
+        # a
+        #print(f"{sum(acc)/len(acc)}")
+        # print(outputs)
+    with open('../llava_refcoco.jsonl', 'w', encoding='utf8') as writer:
         for item in val_answers:
             writer.write(json.dumps(item, ensure_ascii=False)+'\n')
+    
+    writer.close()
 
-model_path = "/path/to/lora_ckpt"
+model_path = "/path/to/llava_refcoco"
 args = type('Args', (), {
-    "model_path": model_path,
-    "model_base": '/path/to/base_model', 
-    "model_name": "llava_lora_v1",#"llava",
-    "prompt_data": "/path/to/eval_json_file",
-    "dataset": "/path/to/image_folder",
-    "attack_flag": [True],
+    "model_path": model_path,#"/path/to/Llava-7b",
+    "model_base": "/path/to/Llava-7b", #None,#"/path/to/Llava-7b",
+    "model_name": "llava_lora_v1",#"llava", # "llava_lora_v1"
+    # "query": prompt,
+    "prompt_data": "demo_data/val_refcoco_poisoned_internvl_new.jsonl",
+    "dataset": "/path/to/coco2017/val2017/",
+    "attack_flag": [True],#[True],
+    "attack_text": "", # Meaningless here
     "conv_mode": None,
+    # "image_file": image_file,
     "sep": ",",
     "temperature": 0,
     "top_p": None,
@@ -191,3 +222,4 @@ args = type('Args', (), {
     "max_new_tokens": 512
 })()
 eval_model(args)
+
