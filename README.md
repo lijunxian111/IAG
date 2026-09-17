@@ -70,6 +70,10 @@ We present the performance of IAG, compared with baselines.
 
 ---  
 
+### Demo  
+
+You may try one of our trained backdoored model at [here](https://huggingface.co/Duke-de-Artois/Refcoco_internvl/settings) (HuggingFace). 
+
 ### Acknowledgements  
 
 Our method is built based on several MLLMs, like [LlaVA](https://github.com/haotian-liu/LLaVA), [InternVL](https://github.com/OpenGVLab/InternVL) and so on. Thanks to them!  
